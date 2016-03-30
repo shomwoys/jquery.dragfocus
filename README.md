@@ -70,5 +70,8 @@ returns
 		text:'<text>'
 	}
 
+- imgfiles are files has 'image/*' content type.
+- inmgurls are urls ends with .jpg, .jpeg, .png, .gif (ignore get parameters) or <img>.src in html.
+
 NOTICE: DataTransfer object for drag events excepting `drop` has no entity. You can only detect is_* on `dragXXXX` events.
 
