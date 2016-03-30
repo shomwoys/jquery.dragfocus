@@ -4,6 +4,8 @@ jQuery dragfocus plugin
 HTML5 `dragenter`, `dragleave` events are not comvenient.
 This plugin add supports `dragin`, `dragout`, `dragfocus`, `dragblur` events for marking droppable area focusable.
 
+MIT LICENSE.
+
 - `dragin` : dragged into element
 - `dragout` : dragged out of element
 - `dragfocus` : focused for dropping
@@ -12,6 +14,8 @@ This plugin add supports `dragin`, `dragout`, `dragfocus`, `dragblur` events for
 `dragin` and `dragout` (like `mouseenter` and `mouseleave`) are fired when dragging object is dragged into/outof element from parent: NOT be fired with child elements.
 
 `dragfocus` and `dragleave` are fired when dragging object into dragged into/outof **deepest** element: `dragfocus`ed element is unique in context.
+
+## basic usage
 
 You need to register droppable areas first.
 
@@ -46,3 +50,25 @@ Each events bubble up: when treat nested droppable area, the events need to be s
 			// on drop
 			doSomething()
 		});
+
+## utility
+
+`analizeDataTransfer()` converts event.originalEvent.dataTransfer to a json ojbect.
+
+returns
+
+	{
+		is_files: <bool>,
+		is_urls: <bool>,
+		is_html: <bool>,
+		is_text: <bool>,
+		files:[<file1>, ...]
+		imgfiles:[<imgfile1>, ...],
+		urls:['<url>', ...],
+		imgurls:['<imgurl>',...],
+		html:'<html>',
+		text:'<text>'
+	}
+
+NOTICE: DataTransfer object for drag events excepting `drop` has no entity. You can only detect is_* on `dragXXXX` events.
+
